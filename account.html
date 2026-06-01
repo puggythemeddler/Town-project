@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign in or create an account to use your shopping cart." />
+  <title>Account — Computer Store</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-active-nav="account">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="site-header"></div>
+  <main id="main" class="page-account">
+    <nav class="breadcrumbs" data-breadcrumbs aria-label="Breadcrumb"></nav>
+
+    <section id="guestView">
+      <h1>Your account</h1>
+      <p class="page-intro">Sign in or register to add items to your cart and save them while you browse.</p>
+
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" data-auth-tab="login">Sign in</button>
+        <button type="button" class="auth-tab" data-auth-tab="register">Create account</button>
+      </div>
+
+      <form id="loginForm" class="auth-form panel">
+        <h2>Sign in</h2>
+        <label>
+          Email
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" autocomplete="current-password" required />
+        </label>
+        <button type="submit" class="button">Sign in</button>
+        <p class="form-error" id="loginError" hidden></p>
+      </form>
+
+      <form id="registerForm" class="auth-form panel" hidden>
+        <h2>Create account</h2>
+        <label>
+          Full name
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+        <label>
+          Password <span class="muted">(min. 6 characters)</span>
+          <input type="password" name="password" autocomplete="new-password" minlength="6" required />
+        </label>
+        <button type="submit" class="button">Create account</button>
+        <p class="form-error" id="registerError" hidden></p>
+      </form>
+    </section>
+
+    <section id="loggedInView" class="panel" hidden>
+      <h1>Hello, <span id="accountName"></span></h1>
+      <p class="page-intro">You are signed in and can use your shopping cart.</p>
+      <div class="account-actions">
+        <a class="button" href="cart.html">View cart</a>
+        <button type="button" class="button button-secondary" id="logoutBtn">Sign out</button>
+      </div>
+
+      <div id="repairSection" class="panel">
+        <h2>My repair tickets</h2>
+        <p class="muted">Track the status of your service requests and view updates from the repair team.</p>
+        <div id="repairListContainer"></div>
+        <div class="repair-controls" style="display:flex;align-items:center;gap:0.5rem;margin-top:0.75rem;">
+          <label style="display:flex;align-items:center;gap:0.5rem">Filter
+            <select id="repairStatusFilter"><option value="">All</option></select>
+          </label>
+          <div style="margin-left:auto;display:flex;gap:0.5rem;align-items:center;">
+            <button type="button" id="prevPage" class="button button-small">Prev</button>
+            <span id="pageInfo" class="muted">Page 1</span>
+            <button type="button" id="nextPage" class="button button-small">Next</button>
+          </div>
+        </div>
+
+        <section id="notificationPanel" class="notification-panel panel">
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <h2>Notifications</h2>
+            <span id="notificationCount" class="status-pill" hidden>0</span>
+          </div>
+          <p class="muted">Recent repair updates visible to your account.</p>
+          <ul id="notificationList" class="updates-list"></ul>
+        </section>
+
+        <h2>Request a repair</h2>
+        <form id="newRepairForm" class="auth-form">
+          <label>
+            Device type
+            <input type="text" name="deviceType" required />
+          </label>
+          <label>
+            Device model
+            <input type="text" name="deviceModel" />
+          </label>
+          <label>
+            Problem description
+            <textarea name="issueDescription" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="button">Submit repair request</button>
+          <p class="form-error" id="repairFormError" role="alert" aria-live="assertive" hidden></p>
+          <p class="form-success" id="repairFormSuccess" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <div id="repairDetailsPanel" hidden class="panel"></div>
+        <div id="repairToast" role="status" aria-live="polite" hidden class="form-success" style="position:fixed;bottom:1rem;right:1rem;z-index:1000;max-width:320px;"></div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="customer-auth.js"></script>
+  <script src="site.js"></script>
+  <script src="account.js"></script>
+</body>
+</html>

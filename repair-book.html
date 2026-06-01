@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book a repair for your laptop or PC." />
+  <title>Book a repair — Computer Store</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-active-nav="repairs">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="site-header"></div>
+  <main id="main" class="page-repair-book">
+    <nav class="breadcrumbs" data-breadcrumbs aria-label="Breadcrumb"></nav>
+    <h1>Book a repair</h1>
+    <p class="page-intro">Describe your device and issue. Default estimated turnaround is <strong>48 hours</strong> from when we receive it.</p>
+    <p id="authRequired" class="product-error" hidden>Please <a href="account.html?redirect=repair-book.html">sign in</a> to book a repair.</p>
+    <form id="repairForm" class="repair-form panel">
+      <label>
+        Device type
+        <select name="deviceType" required>
+          <option value="">Select…</option>
+          <option>Laptop</option>
+          <option>Desktop PC</option>
+          <option>Mac</option>
+          <option>Printer</option>
+          <option>Tablet</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label>
+        Model (optional)
+        <input type="text" name="deviceModel" placeholder="e.g. Dell XPS 15, iPhone 14" />
+      </label>
+      <label>
+        What is the problem?
+        <textarea name="issueDescription" rows="5" required placeholder="Screen cracked, won't turn on, slow, etc."></textarea>
+      </label>
+      <button type="submit" class="button">Submit repair request</button>
+      <p class="form-status" id="repairStatus" hidden role="status"></p>
+    </form>
+    <p><a href="my-repairs.html">View my repair tickets</a> · <a href="repairs.html">Repair services</a></p>
+  </main>
+  <div id="site-footer"></div>
+  <script src="customer-auth.js"></script>
+  <script src="site.js"></script>
+  <script src="repair-book.js"></script>
+</body>
+</html>

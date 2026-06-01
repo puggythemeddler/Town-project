@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Buy laptops, PCs, servers, and printers. Enquire online for stock, pricing, and repairs." />
+  <title>Computer Store — Laptops, PCs &amp; More</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-active-nav="home">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="site-header"></div>
+  <main id="main" class="page-home">
+    <section class="hero">
+      <h1>Welcome to Computer Store</h1>
+      <p>Browse hardware by category, see live prices, and enquire when you are ready to buy. Store owners can manage stock at <a href="/admin/">Store Manager</a>.</p>
+      <a class="button" href="contact.html">Enquire now</a>
+    </section>
+    <section class="cards">
+      <article class="card">
+        <h2>PCs</h2>
+        <p>Desktop systems for business, gaming, and Mac-style machines.</p>
+        <a class="button" href="pc.html">View PCs</a>
+      </article>
+      <article class="card">
+        <h2>Laptops</h2>
+        <p>Gaming, Windows, and Mac laptops for work or play.</p>
+        <a class="button" href="laptops.html">View Laptops</a>
+      </article>
+      <article class="card">
+        <h2>Servers</h2>
+        <p>Rack, tower, and blade servers for business infrastructure.</p>
+        <a class="button" href="servers.html">View Servers</a>
+      </article>
+      <article class="card">
+        <h2>Printers</h2>
+        <p>Home, office, and label printers with enquire-to-buy pricing.</p>
+        <a class="button" href="printer.html">View Printers</a>
+      </article>
+      <article class="card">
+        <h2>Repairs</h2>
+        <p>Screen replacement, tune-ups, and data recovery services.</p>
+        <a class="button" href="repairs.html">View Repairs</a>
+      </article>
+    </section>
+    <section class="featured-section">
+      <h2>Popular items</h2>
+      <p class="page-intro">Sample listings — update prices and stock in <code>products.json</code>.</p>
+      <div class="product-grid" data-products="featured"></div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="customer-auth.js"></script>
+  <script src="site.js"></script>
+  <script src="products.js"></script>
+</body>
+</html>
